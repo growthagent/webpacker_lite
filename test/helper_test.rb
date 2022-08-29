@@ -2,7 +2,7 @@ require "webpacker_test"
 
 class HelperTest < ActionView::TestCase
   def setup
-    @view = ActionView::Base.new
+    @view = ActionView::Base.new nil, [], nil
     @view.extend WebpackerLite::Helper
   end
 
