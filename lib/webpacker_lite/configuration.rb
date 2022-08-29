@@ -58,6 +58,6 @@ class WebpackerLite::Configuration < WebpackerLite::FileLoader
   private
     def load_data
       return super unless File.exist?(@path)
-      HashWithIndifferentAccess.new(YAML.load(File.read(@path))[WebpackerLite::Env.current])
+      HashWithIndifferentAccess.new(YAML.safe_load(File.read(@path), aliases: true)[WebpackerLite::Env.current])
     end
 end
